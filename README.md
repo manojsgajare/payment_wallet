@@ -1,5 +1,5 @@
 
-# PaymentWalletApplicationAPI
+# PaymentWallet
 Live Link:-  <a target="_blank" >https://paymentwalletapplicatipn.netlify.app/login.html</a>
 
 This is the collabartive project which is our Backend project based on SpringBoot JPA (API).
