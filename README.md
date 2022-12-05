@@ -48,7 +48,7 @@ This is the Payment API project with the help of this we can  make various opera
 
 # Team-Members
 - Suraj Sangale
-- Vinayak Pagar
+- Amol Kotkar
 
 
 
