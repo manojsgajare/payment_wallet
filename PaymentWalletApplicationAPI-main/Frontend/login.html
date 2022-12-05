@@ -5,33 +5,221 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <title>LogIn</title>
   </head>
   <body>
-    <div id="operations">
-      <div id="signUp"><a href="index.html">SignUP</a></div>
-      <div id="logIn"><a href="login.html">LogIn</a></div>
-      <div id="Bank"><a href="addbank.html">Add Bank</a></div>
-      <div id="wallet"><a href="wallet.html">Wallet</a></div>
-      <div id="beneficiary"><a href="beneficiary.html">Add beneficiary</a></div>
-      <div id="makePayment"><a href="paybill.html">Pay Bill</a></div>
-      <div id="transaction"><a href="transaction.html">Transaction</a></div>
-    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Your Bank</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto text-center">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html"
+                >SignUp</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">LogIn</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="addbank.html">Add Bank</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="wallet.html">Wallet</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="beneficiary.html">Beneficiary</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="paybill.html">Pay Bills</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="transaction.html">Transactions</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-    <div id="container">
-      <div id="addinput">
-        <h1>LOGIN</h1>
+  
+    <section class="vh-100">
+      <div class="container-fluid h-custom">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-md-9 col-lg-6 col-xl-5">
+            <img
+              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+              class="img-fluid"
+              alt="Sample image"
+            />
+          </div>
+          <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+            <form>
+              
+
+              <div class="divider d-flex align-items-center my-4">
+                <p class="text-center fw-bold mx-3 mb-0"></p>
+                <h3>Log In Your Account</h3>
+              </div>
+
+              <!-- Email input -->
+              <div class="form-outline mb-4">
+                <input
+                  type="text"
+                  id="mobileNo"
+                  class="form-control form-control-lg"
+                  placeholder="Enter mobile number"
+                />
+                <label class="form-label" for="mobileNo"
+                  >Enter Mobile</label
+                >
+              </div>
+
+              <!-- Password input -->
+              <div class="form-outline mb-3">
+                <input
+                  type="password"
+                  id="password"
+                  class="form-control form-control-lg"
+                  placeholder="Enter password"
+                />
+                <label class="form-label" for="password">Password</label>
+              </div>
+
+
+              <div class="text-center text-lg-start mt-4 pt-2">
+                <button
+                  type="button"
+                  class="btn btn-primary btn-lg"
+                  
+                  onclick="LogInAccount()"
+                  style="padding-left: 2.5rem; padding-right: 2.5rem"
+                >
+                  Login
+                </button>
+                <p class="small fw-bold mt-2 pt-1 mb-0">
+                  Don't have an account?
+                  <a href="index.html" class="link-danger">Register</a>
+                </p>
+              </div>
+            </form>
+          </div>
+
+          <!-- Logout -->
+          <section>
+          <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+            <form>
+              <div class="divider d-flex align-items-center my-4">
+                <p class="text-center fw-bold mx-3 mb-0"></p>
+                <h3>Log Out Your Account</h3>
+              </div>
+
+              <!-- Unique Id-->
+              <div class="form-outline mb-4">
+                <input
+                  type="text"
+                  
+                  id="patch"
+                  class="form-control form-control-lg"
+                  placeholder="Enter Unique number"
+                />
+                <label class="form-label" for="patch"
+                  >Enter UniqueId</label
+                >
+              </div>
+              <button
+              type="button"
+              class="btn btn-danger btn-lg"
+              
+              onClick="patchProduct()" 
+              style="padding-left: 2.5rem; padding-right: 2.5rem"
+            >
+              Log Out
+            </button>
+            </form>
+          </div>
+          <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+        </section>
+        </div>
+      </div>
+      <div
+        class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-secondary"
+      >
+      <h1 class="text-white mb-0 mb-md-7">Your Bank</h1>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      
+        <!-- Copyright -->
+        <div class="text-white mb-3 mb-md-0">
+          Copyright © 2020. All rights reserved.
+        </div>
+        <!-- Copyright -->
+
+        <!-- Right -->
+        <!-- <div>
+          <a href="#!" class="text-white me-4">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#!" class="text-white me-4">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#!" class="text-white me-4">
+            <i class="fab fa-google"></i>
+          </a>
+          <a href="#!" class="text-white">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </div> -->
+        <!-- Right -->
+      </div>
+    </section>
+
+    <!-- <div id="container"> -->
+
+      <!-- <div id="addinput">
+        <h1 class="headingOne">LogIn</h1>
         <input type="text" id="mobileNo" placeholder="Enter mobile" />
         <input type="text" id="password" placeholder="Enter password" />
-        <button onclick="LogInAccount()">LOGIN</button>
-      </div>
-      <div id="operation">
+        <button onclick="LogInAccount()">LogIn</button>
+      </div> -->
+
+      <!-- <div id="operation">
         <h3>Logout</h3>
 
         <input type="text" id="key" placeholder="Enter UniqueId" />
         <button onClick="patchProduct()" id="patch">LOGOUT</button>
       </div>
-    </div>
+    </div> -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
 
@@ -79,3 +267,13 @@
     console.log(dat);
   }
 </script>
+
+<!-- <div id="operations">
+      <div id="signUp"><a href="index.html">SignUP</a></div>
+      <div id="logIn"><a href="login.html">LogIn</a></div>
+      <div id="Bank"><a href="addbank.html">Add Bank</a></div>
+      <div id="wallet"><a href="wallet.html">Wallet</a></div>
+      <div id="beneficiary"><a href="beneficiary.html">Add beneficiary</a></div>
+      <div id="makePayment"><a href="paybill.html">Pay Bill</a></div>
+      <div id="transaction"><a href="transaction.html">Transaction</a></div>
+    </div> -->
