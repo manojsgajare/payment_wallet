@@ -9,7 +9,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-
 @SpringBootApplication
 @EnableSwagger2
 public class PaymentWalletAppapiApplication {

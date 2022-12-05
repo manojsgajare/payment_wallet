@@ -22,52 +22,53 @@ import com.code.repository.TransactionDao;
 import com.code.repository.WalletDao;
 
 @Service
-public class BillPaymentServiceImpl implements BillPaymentService{
-	
+public class BillPaymentServiceImpl implements BillPaymentService {
+
 	@Autowired
 	private BillPaymentDao billDao;
-	
+
 	@Autowired
 	private SessionDAO sessionDao;
-	
+
 	@Autowired
 	private CustomerDAO cDao;
-	
+
 	@Autowired
 	private BankAccountDao bankAccoundDao;
-	
+
 	@Autowired
 	private WalletDao walletDao;
-	
+
 	@Autowired
 	private TransactionDao transactionDao;
 
 	@Override
-	public BillPayment makeBillPayment(BillPayment billpayment,String uniqueId) throws InsufficientBalanceException, UserNotLogedinException {
-		Optional<CurrentSessionUser> currentUser =  sessionDao.findByUuid(uniqueId);
-		
-		if(!currentUser.isPresent()) {
+	public BillPayment makeBillPayment(BillPayment billpayment, String uniqueId)
+			throws InsufficientBalanceException, UserNotLogedinException {
+		Optional<CurrentSessionUser> currentUser = sessionDao.findByUuid(uniqueId);
+
+		if (!currentUser.isPresent()) {
 			throw new UserNotLogedinException("Please Login first");
 		}
-		
-		Optional<Customer> customer =  cDao.findById(currentUser.get().getUserId());
+
+		Optional<Customer> customer = cDao.findById(currentUser.get().getUserId());
 		Wallet wallet = customer.get().getWallet();
-		
-		if(wallet.getBalance()<billpayment.getAmount()) {
+
+		if (wallet.getBalance() < billpayment.getAmount()) {
 			throw new InsufficientBalanceException("Insufficient balance in wallet, Add money to your wallet");
 		}
-		
-		wallet.setBalance(wallet.getBalance()-billpayment.getAmount());
+
+		wallet.setBalance(wallet.getBalance() - billpayment.getAmount());
 		walletDao.save(wallet);
-		
+
 		billpayment.setWalletId(wallet.getWalletId());
 		billpayment.setTime(LocalDateTime.now());
-		
+
 		BillPayment completedPayment = billDao.save(billpayment);
-		
-		if(completedPayment!=null) {
+
+		if (completedPayment != null) {
 			Transaction transaction = new Transaction();
-			transaction.setDescription(billpayment.getBilltype() +  " successfull");
+			transaction.setDescription(billpayment.getBilltype() + " successfull");
 			transaction.setAmount(billpayment.getAmount());
 			transaction.setTransactionDate(LocalDateTime.now());
 			transaction.setTransactionType(billpayment.getTransactionType());
@@ -81,21 +82,18 @@ public class BillPaymentServiceImpl implements BillPaymentService{
 
 	@Override
 	public Set<BillPayment> viewBillPayments(String uniqueId) throws UserNotLogedinException {
-		
-		
-		Optional<CurrentSessionUser> currentUser =  sessionDao.findByUuid(uniqueId);
-		
-		if(!currentUser.isPresent()) {
+
+		Optional<CurrentSessionUser> currentUser = sessionDao.findByUuid(uniqueId);
+
+		if (!currentUser.isPresent()) {
 			throw new UserNotLogedinException("Please Login first");
 		}
-		
-		Optional<Customer> customer =  cDao.findById(currentUser.get().getUserId());
+
+		Optional<Customer> customer = cDao.findById(currentUser.get().getUserId());
 		Wallet wallet = customer.get().getWallet();
-		
+
 		Set<BillPayment> billpaymnets = billDao.findByWalletId(wallet.getWalletId());
 		return billpaymnets;
 	}
 
-	
-	
 }

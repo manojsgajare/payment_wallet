@@ -12,13 +12,12 @@ import com.code.model.Transaction;
 import com.code.model.TransactionType;
 
 @Repository
-public interface TransactionDao extends JpaRepository<Transaction, Integer>{
-	
+public interface TransactionDao extends JpaRepository<Transaction, Integer> {
+
 	public List<Transaction> findByWalletId(Integer walletId);
-	
+
 	public List<Transaction> getTransactionByTransactionType(TransactionType type);
 
 	public List<Transaction> findByTransactionDate(LocalDate date);
-	
 
 }

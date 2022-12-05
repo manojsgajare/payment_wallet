@@ -22,31 +22,28 @@ import lombok.ToString;
 
 @Entity
 public class Wallet {
-   
+
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer walletId;
-	
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer walletId;
+
 	private Double balance;
-	
+
 	@OneToOne(cascade = CascadeType.ALL)
 	private Customer customer;
-	
+
 	@OneToMany
 	@JsonIgnore
 	private List<Transaction> transaction;
-	
+
 	@OneToMany
 	@JsonIgnore
 	private List<BillPayment> billpayments;
-	
+
 	@OneToMany
 	@JsonIgnore
 	private List<BeneficiaryDetail> beneficiaryDetails;
-	
-	
 
-	
 	public Integer getWalletId() {
 		return walletId;
 	}
@@ -79,7 +76,6 @@ public class Wallet {
 		this.transaction = transaction;
 	}
 
-	
 	public List<BeneficiaryDetail> getBeneficiaryDetails() {
 		return beneficiaryDetails;
 	}
@@ -101,6 +97,4 @@ public class Wallet {
 		this.billpayments = billpayments;
 	}
 
-
-	
 }

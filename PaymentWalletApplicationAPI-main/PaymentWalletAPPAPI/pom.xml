@@ -6,7 +6,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.7.4</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>PaymentWalletAPPAPI</artifactId>
@@ -53,31 +53,30 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-validation -->
 		<dependency>
-		    <groupId>org.springframework.boot</groupId>
-		    <artifactId>spring-boot-starter-validation</artifactId>
-		    <version>2.7.4</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+			<version>2.7.4</version>
 		</dependency>
-		
-		
+
+
 		<!-- https://mvnrepository.com/artifact/io.springfox/springfox-boot-starter -->
 		<dependency>
-		    <groupId>io.springfox</groupId>
-		    <artifactId>springfox-boot-starter</artifactId>
-		    <version>3.0.0</version>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-boot-starter</artifactId>
+			<version>3.0.0</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
-	<dependency>
-	    <groupId>javax.validation</groupId>
-	    <artifactId>validation-api</artifactId>
-	    <version>2.0.1.Final</version>
-	</dependency>
-	
-	
-		
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>2.0.1.Final</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>

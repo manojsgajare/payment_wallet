@@ -12,21 +12,21 @@ import com.code.repository.CustomerDAO;
 import com.code.repository.SessionDAO;
 
 @Service
-public class CurrentUserSessionServiceImpl implements CurrentUserSessionService{
-	
+public class CurrentUserSessionServiceImpl implements CurrentUserSessionService {
+
 	@Autowired
 	private SessionDAO sessionDAO;
-	
+
 	@Autowired
 	private CustomerDAO signUpDAO;
-	
+
 	@Override
 	public CurrentSessionUser getCurrentUserSession(String key) throws LoginException {
 		Optional<CurrentSessionUser> currentSessionuser = sessionDAO.findByUuid(key);
-		
-		if(currentSessionuser.isPresent()) {
+
+		if (currentSessionuser.isPresent()) {
 			return currentSessionuser.get();
-		}else {
+		} else {
 			throw new LoginException("UnAuthorized!!!");
 		}
 	}
@@ -34,8 +34,7 @@ public class CurrentUserSessionServiceImpl implements CurrentUserSessionService{
 	@Override
 	public Integer getCurrentUserSessionId(String key) throws LoginException {
 		Optional<CurrentSessionUser> currentUser = sessionDAO.findByUuid(key);
-		if(!currentUser.isPresent())
-		{
+		if (!currentUser.isPresent()) {
 			throw new LoginException("UnAuthorized!!!");
 		}
 		return currentUser.get().getId();
@@ -44,13 +43,12 @@ public class CurrentUserSessionServiceImpl implements CurrentUserSessionService{
 	@Override
 	public Customer getSignUpDetails(String key) throws LoginException {
 		Optional<CurrentSessionUser> currentUser = sessionDAO.findByUuid(key);
-		if(!currentUser.isPresent())
-		{
+		if (!currentUser.isPresent()) {
 			return null;
 		}
 		Integer SignUpUserId = currentUser.get().getUserId();
-		System.out.println(SignUpUserId );
-		
+		System.out.println(SignUpUserId);
+
 		return (signUpDAO.findById(SignUpUserId)).get();
 	}
 
